@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style type="text/css">
+.tg  {border:none;border-collapse:collapse;border-color:#93a1a1;border-spacing:0;margin: auto;}
+.tg td{background-color:#fdf6e3;border-color:#93a1a1;border-style:solid;border-width:0px;color:#002b36;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 50px;word-break:normal;}
+.tg th{background-color:#657b83;border-color:#93a1a1;border-style:solid;border-width:0px;color:#fdf6e3;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-40xt{background-color:#eee8d5;font-family:"Lucida Console", Monaco, monospace !important;;font-size:14px;text-align:left;
+  vertical-align:top}
+.tg .tg-m726{font-family:"Lucida Console", Monaco, monospace !important;;font-size:14px;text-align:left;vertical-align:top}
+.tg .tg-cgj5{border-color:#000000;font-family:"Lucida Console", Monaco, monospace !important;;font-size:14px;text-align:right;
+  vertical-align:middle}
+.tg .tg-8aoe{border-color:#000000;font-family:"Lucida Console", Monaco, monospace !important;;font-size:16px;text-align:center;
+  vertical-align:middle}
+.tg .tg-z7do{background-color:#eee8d5;border-color:#000000;font-family:"Lucida Console", Monaco, monospace !important;;
+  font-size:13px;text-align:left;vertical-align:middle}
+</style>
+
+<head>
+    <link rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <title>ML-app</title>
+</head>
+
+<body>
+<form action="/predict" method="POST">
+    <table class="tg">
+        <thead>
+        <tr>
+            <th class="tg-8aoe" colspan="2"><h2> Boston house prices dataset </h2></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="tg-m726">
+                <ul>
+                    <li> Фиктивная переменная Charles River (= 1, если участок ограничивает реку; 0 в противном случае)
+                        <br>
+                        <input type="text" name="CHAS" placeholder='Введите число'><br>
+                    </li>
+                    <br>
+                    <li> Концентрация оксидов азота
+                        <br>
+                        <input type="text" name="NOX" placeholder='Введите число'><br>
+                    </li>
+                    <br>
+                    <li> Среднее число комнат в доме
+                        <br>
+                        <input type="text" name="RM" placeholder='Введите число'>
+                    </li>
+                    <br>
+                    <li> Взвешенные расстояния до пяти Бостонских центров занятости
+                        <br>
+                        <input type="text" name="DIS" placeholder='Введите число'><br>
+                    </li>
+                    <br>
+                    <li> Соотношение учеников и учителей по городу
+                        <br>
+                        <input type="text" name="PTRATIO" placeholder='Введите число'>
+                    </li>
+                    <br>
+                    <li> % Низкостатусного населения
+                        <br>
+                        <input type="text" name="LSTAT" placeholder='Введите число'>
+                    </li>
+                </ul>
+            </td>
+            <td class="tg-40xt">
+                    <ul><b><u>Результат предсказания:</u></b></ul>
+                    <ul>Средняя стоимость дома в Бостоне, в $1000<br>
+                        <b>
+                            <br>
+                            {% if prediction %}
+                            <h2 class="text-warning" style="color:red; padding-left: 10px;">{{prediction}}</h2>
+                            {% endif %}
+                        </b>
+                    </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="tg-cgj5">
+                <button class='btn btn-success'>Предсказать</button>
+            </td>
+            <td class="tg-z7do"></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>
